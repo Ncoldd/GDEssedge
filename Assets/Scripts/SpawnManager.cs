@@ -4,9 +4,10 @@ using Unity.Netcode.Components;
 
 public class SpawnManager : NetworkBehaviour
 {
+    //array of spawn points set in the Unity Inspector
     [SerializeField] private Transform[] spawnPoints;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //called when this object spawns on the network
     public override void OnNetworkSpawn()
     {
         if (IsServer)
@@ -15,10 +16,15 @@ public class SpawnManager : NetworkBehaviour
         }
     }
 
+    //runs every time a new client joins
     private void OnClientConnected(ulong clientId)
     {
+        //cycle through spawn points based on client ID
+        // % (modulo) wraps the index so it never goes out of bounds
         int index = (int)(clientId % (ulong)spawnPoints.Length);
         NetworkObject player = NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject();
+
+        //move player to the assigned spawn point
         player.transform.position = spawnPoints[index].position;
     }
 }
