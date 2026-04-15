@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.Netcode;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NetworkManagerUI : MonoBehaviour
 {
@@ -9,7 +10,16 @@ public class NetworkManagerUI : MonoBehaviour
 
     private void Awake()
     {
-        hostBtn.onClick.AddListener(() => NetworkManager.Singleton.StartHost());
-        clientBtn.onClick.AddListener(() => NetworkManager.Singleton.StartClient());
+        hostBtn.onClick.AddListener(() =>
+        {
+            NetworkManager.Singleton.StartHost();
+            //Load Hunt Scene as host
+            NetworkManager.Singleton.SceneManager.LoadScene("HuntScene", LoadSceneMode.Single);
+        });
+
+        clientBtn.onClick.AddListener(() =>
+        {
+            NetworkManager.Singleton.StartClient();
+        });
     }
 }
