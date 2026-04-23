@@ -75,10 +75,25 @@ public class EnemyAI : NetworkBehaviour
     {
         if (!IsServer) return;
         CurrentHealth.Value = Mathf.Max(0, CurrentHealth.Value - damage);
+        FlashClientRpc();
 
         if (CurrentHealth.Value <= 0)
         {
             GetComponent<NetworkObject>().Despawn();
         }
+    }
+
+    //clientRpc tells all clients to flash the enemy red
+    [ClientRpc]
+    private void FlashClientRpc()
+    {
+        StartCoroutine(FlashRed());
+    }
+
+    private System.Collections.IEnumerator FlashRed()
+    {
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.01f);
+        GetComponent<SpriteRenderer>().color = new Color(0.145f, 0.51f, 0.263f); 
     }
 }

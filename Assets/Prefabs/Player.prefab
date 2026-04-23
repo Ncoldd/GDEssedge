@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6332336714944375822}
   - component: {fileID: 5749717104561985109}
   - component: {fileID: 963776245651252782}
+  - component: {fileID: -54821764786331456}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -265,3 +266,18 @@ MonoBehaviour:
       MinSecondsBetweenUpdates: 0
       MaxSecondsBetweenUpdates: 0
     m_InternalValue: 100
+--- !u!114 &-54821764786331456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5773545177327913183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cf40d8926d26444183a836405e6c978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  ShowTopMostFoldoutHeaderGroup: 1
+  attackDamage: 25
+  attackRange: 1.5
