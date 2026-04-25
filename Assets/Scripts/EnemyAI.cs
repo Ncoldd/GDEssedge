@@ -93,7 +93,7 @@ public class EnemyAI : NetworkBehaviour
     private System.Collections.IEnumerator FlashRed()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.2f);
         GetComponent<SpriteRenderer>().color = new Color(0.145f, 0.51f, 0.263f); 
     }
 }

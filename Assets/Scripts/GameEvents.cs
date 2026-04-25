@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameEvents : MonoBehaviour
 {
-    //Singleton              //get - others can read//private set - only this instance can write
+    //Singleton //get - others can read//private set - only this instance can write
     public static GameEvents Instance { get; private set; }
 
     private void Awake()

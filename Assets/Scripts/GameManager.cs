@@ -1,5 +1,6 @@
-using UnityEngine;
 using Unity.Netcode;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : NetworkBehaviour
 {
@@ -52,6 +53,8 @@ public class GameManager : NetworkBehaviour
         {
             CurrentRound.Value++;
             CurrentWave.Value = 1; //Reset wave count for new round
+
+            NetworkManager.Singleton.SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
         }
     }
 

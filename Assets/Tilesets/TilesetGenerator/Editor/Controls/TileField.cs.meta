@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 608b009111074942b73e740da57e6104
+timeCreated: 1762026708
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345066
+  packageName: Tileset Generator
+  packageVersion: 1.0
+  assetPath: Assets/TilesetGenerator/Editor/Controls/TileField.cs
+  uploadId: 820126

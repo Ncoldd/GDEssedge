@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b1f2222431933f2478951c3864774fb6
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345066
+  packageName: Tileset Generator
+  packageVersion: 1.0
+  assetPath: Assets/TilesetGenerator/Sample_Textures/New Tile Palette.prefab
+  uploadId: 820126

@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: d5eb6c927a4284b4f900a820d4213400
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345066
+  packageName: Tileset Generator
+  packageVersion: 1.0
+  assetPath: Assets/TilesetGenerator/Editor/TilesetGenerator.cs
+  uploadId: 820126

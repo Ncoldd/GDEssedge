@@ -18,7 +18,7 @@ public class HUDManager : MonoBehaviour
         //TextMeshProUGUI is a component, and .text is the property that shows what's displayed
         //Since they are network variables, must use .Value to get the number inside
         roundText.text = $"Round: {GameManager.Instance.CurrentRound.Value}";
-        waveText.text = $"Wave: {GameManager.Instance.CurrentRound.Value}";
+        waveText.text = $"Wave: {GameManager.Instance.CurrentWave.Value}";
         playersAliveText.text = $"Players Alive: {GameManager.Instance.PlayersAlive.Value}";
     }
 }

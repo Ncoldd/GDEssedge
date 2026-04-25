@@ -42,9 +42,21 @@ public class WaveSpawner : NetworkBehaviour
         if (enemiesAlive <= 0)
         {
             waveActive = false;
-            //Tell GameManager wave is done
-            GameManager.Instance.AdvanceWave();
-            GameEvents.Instance.WaveComplete(GameManager.Instance.CurrentWave.Value);
+            //add to the current wave value to update UI
+            int nextWave = GameManager.Instance.CurrentWave.Value + 1;
+
+            if (nextWave > 3)
+            {
+                //if all 3 waves ended, call AdvanceWave(), which will handle loading the lobby
+                GameManager.Instance.AdvanceWave();
+            }
+            else
+            {
+                //still call AdvanceWave() to advance wave, but it wont load lobby because next is !> 3
+                GameManager.Instance.AdvanceWave();
+                //enemy spawn logic
+                StartWave();
+            }
         }
     }
 }

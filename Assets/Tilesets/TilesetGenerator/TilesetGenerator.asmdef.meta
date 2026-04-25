@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c3fee437e136a4f4eb1b7d11ab632e93
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345066
+  packageName: Tileset Generator
+  packageVersion: 1.0
+  assetPath: Assets/TilesetGenerator/TilesetGenerator.asmdef
+  uploadId: 820126
