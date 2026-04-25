@@ -34,8 +34,9 @@ public class PlayerCombat : NetworkBehaviour
             //if within distance
             if (dist <= attackRange)
             {
-                //take damage
+                //give damage
                 enemy.TakeDamage(attackDamage);
+                AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.attackSound);
             }
         }
     }

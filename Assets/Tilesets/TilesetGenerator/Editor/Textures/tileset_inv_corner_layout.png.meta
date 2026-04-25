@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: a1d71dbe1dcfe48df843b243d45840fc
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345066
+  packageName: Tileset Generator
+  packageVersion: 1.0
+  assetPath: Assets/TilesetGenerator/Editor/Textures/tileset_inv_corner_layout.png
+  uploadId: 820126
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -167,10 +174,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 345066
-  packageName: Tileset Generator
-  packageVersion: 1.0
-  assetPath: Assets/TilesetGenerator/Editor/Textures/tileset_inv_corner_layout.png
-  uploadId: 820126

@@ -47,6 +47,9 @@ TagManager:
   - name: Walls
     uniqueID: 2545278673
     locked: 0
+  - name: Auxilary
+    uniqueID: 4189972085
+    locked: 0
   - name: Player
     uniqueID: 3478696529
     locked: 0

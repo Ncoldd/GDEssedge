@@ -49,6 +49,7 @@ public class WaveSpawner : NetworkBehaviour
             {
                 //if all 3 waves ended, call AdvanceWave(), which will handle loading the lobby
                 GameManager.Instance.AdvanceWave();
+                AudioManager.Instance.PlayMusic(AudioManager.Instance.lobbyMusic);
             }
             else
             {

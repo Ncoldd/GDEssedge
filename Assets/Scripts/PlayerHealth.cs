@@ -19,6 +19,7 @@ public class PlayerHealth : NetworkBehaviour
 
         //Fire the delegate event so other systems know
         GameEvents.Instance.PlayerTakeDamage(OwnerClientId, damage);
+        AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.hurtSound);
 
         if (CurrentHealth.Value <= 0)
         {

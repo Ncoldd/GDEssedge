@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: bda12686c4c32ca4eac2c4f54e4eacdc
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345066
+  packageName: Tileset Generator
+  packageVersion: 1.0
+  assetPath: Assets/TilesetGenerator/Sample_Textures/32x32_tiles_A.png
+  uploadId: 820126
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -442,10 +449,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 345066
-  packageName: Tileset Generator
-  packageVersion: 1.0
-  assetPath: Assets/TilesetGenerator/Sample_Textures/32x32_tiles_A.png
-  uploadId: 820126

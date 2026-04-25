@@ -14,13 +14,15 @@ public class NetworkManagerUI : MonoBehaviour
         hostBtn.onClick.AddListener(() =>
         {
             NetworkManager.Singleton.StartHost();
-            //Load Hunt Scene as host
-            NetworkManager.Singleton.SceneManager.LoadScene("HuntScene", LoadSceneMode.Single);
+            AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.spawnSound);
+            //Load Lobby Scene as host
+            NetworkManager.Singleton.SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
         });
 
         clientBtn.onClick.AddListener(() =>
         {
             NetworkManager.Singleton.StartClient();
+            AudioManager.Instance.PlaySoundEffect(AudioManager.Instance.spawnSound);
         });
     }
 }

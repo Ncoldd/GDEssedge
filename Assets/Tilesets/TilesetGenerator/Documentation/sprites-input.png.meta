@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 918fa1743b36b7d42913a16a5ef3fa65
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345066
+  packageName: Tileset Generator
+  packageVersion: 1.0
+  assetPath: Assets/TilesetGenerator/Documentation/sprites-input.png
+  uploadId: 820126
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -141,10 +148,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 345066
-  packageName: Tileset Generator
-  packageVersion: 1.0
-  assetPath: Assets/TilesetGenerator/Documentation/sprites-input.png
-  uploadId: 820126
