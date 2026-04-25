@@ -10,7 +10,15 @@ public class PlayerHealth : NetworkBehaviour
         NetworkVariableWritePermission.Server
     );
 
+    //Tracks enemies killed by this player
+    public NetworkVariable<int> EnemiesKilled = new NetworkVariable<int>(
+        0,
+        NetworkVariableReadPermission.Everyone,
+        NetworkVariableWritePermission.Server
+    );
+
     private const float MAX_HEALTH = 100f;
+    private bool isDead = false;
 
     public void TakeDamage(float damage)
     {
@@ -23,13 +31,22 @@ public class PlayerHealth : NetworkBehaviour
 
         if (CurrentHealth.Value <= 0)
         {
+            isDead = true;
             GameEvents.Instance.PlayerDie(OwnerClientId);
+            GameManager.Instance.PlayersAlive.Value--;
+            CheckWipeCondition();
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void AddKill()
     {
-        
+        if (!IsServer) return;
+        EnemiesKilled.Value++;
+    }
+    private void CheckWipeCondition()
+    {
+        if (GameManager.Instance.PlayersAlive.Value <= 0)
+        {
+            GameManager.Instance.TriggerGameOver();
+        }
     }
 }

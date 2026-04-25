@@ -71,7 +71,7 @@ public class EnemyAI : NetworkBehaviour
         target.GetComponent<PlayerHealth>()?.TakeDamage(attackDamage);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, ulong attackerClientId)
     {
         if (!IsServer) return;
         CurrentHealth.Value = Mathf.Max(0, CurrentHealth.Value - damage);
@@ -79,6 +79,15 @@ public class EnemyAI : NetworkBehaviour
 
         if (CurrentHealth.Value <= 0)
         {
+            //Give kill credit to the attacker
+            foreach (var player in FindObjectsByType<PlayerHealth>(FindObjectsSortMode.None))
+            {
+                if (player.OwnerClientId == attackerClientId)
+                {
+                    player.AddKill();
+                    break;
+                }
+            }
             GetComponent<NetworkObject>().Despawn();
         }
     }

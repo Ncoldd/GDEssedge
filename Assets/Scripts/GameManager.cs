@@ -12,7 +12,7 @@ public class GameManager : NetworkBehaviour
     public NetworkVariable<int> CurrentWave = new NetworkVariable<int>(1);
     public NetworkVariable<int> PlayersAlive = new NetworkVariable<int>(0);
 
-    private const int MAX_ROUNDS = 5;
+    private const int MAX_ROUNDS = 3;
     private const int MAX_WAVES = 3;
 
     private void Awake()
@@ -57,10 +57,15 @@ public class GameManager : NetworkBehaviour
             NetworkManager.Singleton.SceneManager.LoadScene("LobbyScene", LoadSceneMode.Single);
         }
     }
+    public void TriggerGameOver()
+    {
+        if (!IsServer) return;
+        NetworkManager.Singleton.SceneManager.LoadScene("ResultsScene", LoadSceneMode.Single);
+    }
 
     //Game over - all rounds complete or party wiped
     private void EndGame()
     {
-        Debug.Log("Game Over!");
+        TriggerGameOver();
     }
 }
