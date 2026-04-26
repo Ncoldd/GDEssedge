@@ -88,7 +88,8 @@ public class EnemyAI : NetworkBehaviour
                     break;
                 }
             }
-            GetComponent<NetworkObject>().Despawn();
+            //GetComponent<NetworkObject>().Despawn();
+            EnemyPool.Instance.ReturnEnemy(gameObject); //Return to pool instead of despawning
         }
     }
 

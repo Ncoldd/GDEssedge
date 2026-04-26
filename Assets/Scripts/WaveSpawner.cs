@@ -3,7 +3,6 @@ using Unity.Netcode;
 
 public class WaveSpawner : NetworkBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private int enemiesPerWave = 5;
 
@@ -26,8 +25,9 @@ public class WaveSpawner : NetworkBehaviour
         {
             //Cycle through spawn points
             Transform spawnPoint = spawnPoints[i % spawnPoints.Length];
-            GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-            enemy.GetComponent<NetworkObject>().Spawn();
+            //GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+            //enemy.GetComponent<NetworkObject>().Spawn();
+            EnemyPool.Instance.GetEnemy(spawnPoint.position); //Pool
         }
     }
 

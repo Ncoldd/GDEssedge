@@ -18,7 +18,7 @@ public class PlayerHealth : NetworkBehaviour
     );
 
     private const float MAX_HEALTH = 100f;
-    private bool isDead = false;
+    //private bool isDead = false;
 
     public void TakeDamage(float damage)
     {
@@ -31,7 +31,7 @@ public class PlayerHealth : NetworkBehaviour
 
         if (CurrentHealth.Value <= 0)
         {
-            isDead = true;
+            //isDead = true;
             GameEvents.Instance.PlayerDie(OwnerClientId);
             GameManager.Instance.PlayersAlive.Value--;
             CheckWipeCondition();

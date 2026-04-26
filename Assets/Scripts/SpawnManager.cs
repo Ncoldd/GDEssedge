@@ -10,27 +10,39 @@ public class SpawnManager : NetworkBehaviour
     //called when this object spawns on the network
     public override void OnNetworkSpawn()
     {
-        if (IsServer)
+        if (!IsServer) return;
+        NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+
+        foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
         {
-            NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+            SpawnPlayer(clientId);
         }
-        //Debug.Log($"IsOwner: {IsOwner}, IsHost: {IsHost}, IsLocalPlayer: {IsLocalPlayer}");
+
+        // Set players alive to actual connected count
+        GameManager.Instance.PlayersAlive.Value = NetworkManager.Singleton.ConnectedClientsIds.Count;
+
     }
 
     //runs every time a new client joins
     private void OnClientConnected(ulong clientId)
     {
-        //PlayerMovement[] players = FindAnyObjectByType<PlayerMovement>();
-        //ulong hostId = NetworkManager.Singleton.LocalClientId;
-
-        
-        
-        //cycle through spawn points based on client ID
-        // % (modulo) wraps the index so it never goes out of bounds
+        SpawnPlayer(clientId);
+    }
+    private void SpawnPlayer(ulong clientId)
+    {
         int index = (int)(clientId % (ulong)spawnPoints.Length);
-        NetworkObject player = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(clientId);
+        NetworkObject playerObj = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(clientId);
 
-        //move player to the assigned spawn point
-        player.transform.position = spawnPoints[index].position;
+        if (playerObj == null)
+        {
+            //Player was despawned, respawn them
+            GameObject player = Instantiate(NetworkManager.Singleton.NetworkConfig.PlayerPrefab,
+                spawnPoints[index].position, Quaternion.identity);
+            player.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
+        }
+        else
+        {
+            playerObj.transform.position = spawnPoints[index].position;
+        }
     }
 }
